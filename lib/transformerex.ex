@@ -1,13 +1,12 @@
 defmodule Transformerex do
-  @moduledoc false
   @json_root_path "$."
-  @yaml_test_file "test/support/files/test.yml"
 
   alias Transformerex.Path
 
-  def transform(file_path \\ @yaml_test_file, root \\ @json_root_path) do
-    {:ok, [yaml]} = YamlElixir.read_all_from_file(file_path, atoms: true)
-    operate(yaml["data"], yaml["mapping"], root)
+  # TODO: the intent here is that the YAML maps will be read once at startup
+  def transform(json, yaml_mapping) do
+    {:ok, map} = Jason.decode(json)
+    operate(map, yaml_mapping, @json_root_path)
   end
 
   defp operate(json, mapping, root) do
