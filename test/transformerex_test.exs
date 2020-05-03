@@ -39,14 +39,18 @@ defmodule TransformerexTest do
     assert context.transformed_data["last_name"] == expected_value
   end
 
-  # test "show me the data" do
-  #   test_json()
-  #   |> Jason.decode!()
-  #   |> IO.inspect()
+  test "transforms nested mapping keys", context do
+    assert Map.has_key?(context.original_data, "emails")
+    refute Map.has_key?(context.transformed_data, "emails")
+    assert Map.has_key?(context.transformed_data, "email_addresses")
+  end
 
-  #   test_mapping()
-  #   |> IO.inspect()
-  # end
+  test "retains nested mapping values", context do
+    emails = Enum.map(context.transformed_data["email_addresses"], & &1)
+
+    assert %{"email_address" => "jon@doe.com", "type" => "work"} in emails
+    assert %{"email_address" => "jane@doe.com", "type" => "home"} in emails
+  end
 
   defp test_json do
     {:ok, json} =
