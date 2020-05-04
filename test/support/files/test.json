@@ -1,0 +1,23 @@
+{
+  "city": "Raleigh",
+  "dob": "June 1, 1964",
+  "data_nested_hash": {
+    "keya": "A",
+    "keyb": "B",
+    "keyc": {
+      "nodec": "C"
+    }
+  },
+  "emails": [
+    {
+      "email": "jon@doe.com",
+      "type": "work"
+    },
+    {
+      "email": "jane@doe.com",
+      "type": "home"
+    }
+  ],
+  "first_name": "Martin",
+  "last_name": "Streicher"
+}

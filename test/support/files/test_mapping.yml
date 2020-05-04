@@ -1,0 +1,18 @@
+birth_date: dob
+
+nested_hash:
+  source: data_nested_hash
+  key_alpha: keya
+  key_beta: keyb
+
+  key_gamma:
+    source: keyc
+    node_charlie: nodec
+
+email_addresses:
+  - source: emails
+    email_address: email
+    type:
+
+first_name: $.first_name
+last_name:
