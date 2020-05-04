@@ -1,3 +1,5 @@
+![Elixir CI](https://github.com/magnet-team/transformer_elixir/workflows/Elixir%20CI/badge.svg)
+
 # Transformerex
 
 **TODO: Add description**
