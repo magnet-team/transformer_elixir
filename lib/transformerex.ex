@@ -3,10 +3,10 @@ defmodule Transformerex do
 
   alias Transformerex.Path
 
-  # TODO: the intent here is that the YAML maps will be read once at startup
-  def transform(json, yaml_mapping) do
+  # TODO: YAML maps should be read into an Elixir map once at startup
+  def transform(json, mapping) do
     {:ok, map} = Jason.decode(json)
-    operate(map, yaml_mapping, @json_root_path)
+    operate(map, mapping, @json_root_path)
   end
 
   defp operate(json, mapping, root) do
