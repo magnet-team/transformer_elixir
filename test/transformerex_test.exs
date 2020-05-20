@@ -53,18 +53,12 @@ defmodule TransformerexTest do
   end
 
   defp test_json do
-    {:ok, json} =
-      Path.relative("test/support/files/test.json")
-      |> File.read()
-
-    json
+    Path.relative("test/support/files/test.json")
+    |> File.read!()
   end
 
   defp test_mapping do
-    {:ok, map} =
-      Path.relative("test/support/files/test_mapping.yml")
-      |> YamlElixir.read_from_file()
-
-    map
+    Path.relative("test/support/files/test_mapping.yml")
+    |> YamlElixir.read_from_file!()
   end
 end
